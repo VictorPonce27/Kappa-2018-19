@@ -4,10 +4,9 @@
 #pragma config(Motor,  port1,           LiftR,         tmotorVex393_HBridge, openLoop)
 #pragma config(Motor,  port2,           Left,          tmotorVex393_MC29, openLoop, reversed)
 #pragma config(Motor,  port3,           Right,         tmotorVex393_MC29, openLoop, encoderPort, I2C_3)
-#pragma config(Motor,  port4,           LiftR2,        tmotorVex393_MC29, openLoop)
+#pragma config(Motor,  port4,           Lift2,         tmotorVex393_MC29, openLoop)
 #pragma config(Motor,  port5,            ,             tmotorVex393_MC29, openLoop)
-#pragma config(Motor,  port6,            ,             tmotorVex393_MC29, openLoop)
-#pragma config(Motor,  port7,           LiftL2,        tmotorVex393_MC29, openLoop)
+#pragma config(Motor,  port7,            ,             tmotorVex393_MC29, openLoop)
 #pragma config(Motor,  port8,            ,             tmotorVex393_MC29, openLoop, reversed)
 #pragma config(Motor,  port9,           Claw,          tmotorVex393_MC29, openLoop)
 #pragma config(Motor,  port10,          LiftL,         tmotorVex393_HBridge, openLoop)
@@ -56,8 +55,8 @@ task usercontrol()
  			int ClawL = vexRT(Btn8R);
  			int LiftUp = vexRT(Btn5D);
  			int LiftDown = vexRT(Btn5U);
- 			int LiftUp2 = vexRT(Btn6D);
- 			int LiftDown2 = vexRT(Btn6U);
+ 			int LiftUp2 = vexRT(Btn6U);
+ 			int LiftDown2 = vexRT(Btn6D);
  			int leftstickX;
  			int leftstickY;
  			int deadzone = 5;
@@ -102,18 +101,15 @@ task usercontrol()
 /////////////////Second Lift/////////////////////////
 	if (LiftUp2 == 1)
 		{
-			motor[LiftR2] = 127;
-			motor[LiftL2] = 127;
+			motor[Lift2] = 127;
 		}
 	else if (LiftDown2 == 1)
 		{
-			motor[LiftR2] = -127;
-			motor[LiftL2] = -127;
+			motor[Lift2] = -127;
 		}
 	else
 		{
-			motor[LiftR2] = 0;
-			motor[LiftL2] = 0;
+			motor[Lift2] = 0;
 		}
 /////////////////Second Lift//////////////////////////
 
@@ -121,7 +117,7 @@ task usercontrol()
 	if (ClawR == 1)
 		{motor [Claw] = -97;}
 
-	else if (ClawL ==1)
+	else if (ClawL == 1)
 		{motor [Claw] = 97;}
 
 	else
