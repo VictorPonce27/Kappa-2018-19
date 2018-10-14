@@ -41,17 +41,33 @@ void pre_auton()
 
 task autonomous()
 {
-	motor[Lift2]= -127;
-	wait(10);
-	motor[Lift2]= 0;
-// The lift goes down for a second
+	motor[Left]= -127;
+	motor[Right]= -127;
+	wait1Msec(5000);
+	motor[Left]= 0;
+	motor[Right]= 0;
+// The robot goes backward to hit the flag
 
-	motor[Right]=  127;
-	motor[Left] =  127;
-  wait (3);
-  motor[Right] = 0;
-  motor[Left]  = 0;
-// The robot goes forward
+	motor[Left]= 127;
+	motor[Right]= 127;
+	wait1Msec(5000);
+	motor[Left]= 0;
+	motor[Right]= 0;
+// The robot goes forward to come back
+
+	motor[Left]= -127;
+	motor[Right]= 127;
+	wait1Msec(1500);
+	motor[Left]= 0;
+	motor[Right]= 0;
+// The robot turns to the right
+
+	motor[Left]= 127;
+	motor[Right]= 127;
+	wait1Msec(3000);
+	motor[Left]= 0;
+	motor[Right]= 0;
+// The robot goes foward to knock the ball away from the cap
 }
 
 task usercontrol()
