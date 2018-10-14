@@ -1,12 +1,8 @@
-#pragma config(I2C_Usage, I2C1, i2cSensors)
 #pragma config(Sensor, in8,    Lift1_R,        sensorPotentiometer)
-#pragma config(Sensor, I2C_3,  ,               sensorQuadEncoderOnI2CPort,    , AutoAssign )
 #pragma config(Motor,  port1,           LiftR,         tmotorVex393_HBridge, openLoop)
 #pragma config(Motor,  port2,           Left,          tmotorVex393_MC29, openLoop, reversed)
-#pragma config(Motor,  port3,           Right,         tmotorVex393_MC29, openLoop, encoderPort, I2C_3)
-#pragma config(Motor,  port4,           Lift2,         tmotorVex393_MC29, openLoop)
-#pragma config(Motor,  port5,            ,             tmotorVex393_MC29, openLoop)
-#pragma config(Motor,  port7,            ,             tmotorVex393_MC29, openLoop)
+#pragma config(Motor,  port3,           Right,         tmotorVex393_MC29, openLoop)
+#pragma config(Motor,  port7,           Lift2,         tmotorVex393_MC29, openLoop)
 #pragma config(Motor,  port8,           Intake,        tmotorVex393_MC29, openLoop)
 #pragma config(Motor,  port9,           Claw,          tmotorVex393_MC29, openLoop)
 #pragma config(Motor,  port10,          LiftL,         tmotorVex393_HBridge, openLoop)
@@ -45,23 +41,17 @@ void pre_auton()
 
 task autonomous()
 {
-/*
 	motor[Lift2]= -127;
-	wait1Msec(10);
+	wait(10);
 	motor[Lift2]= 0;
 // The lift goes down for a second
 
-	motor[Left]= 127;
-	motor[Right]= 127;
-	wait1Msec(20);
-	motor[Left]= 0;
-	motor[Right]= 0;
-// The robot goes forward three seconds in an attempt to pick up the cap
-*/
-
-	motor[Intake]= -127;
-	wait1Msec(10000);
-	motor[Intake]= 0;
+	motor[Right]=  127;
+	motor[Left] =  127;
+  wait (3);
+  motor[Right] = 0;
+  motor[Left]  = 0;
+// The robot goes forward
 }
 
 task usercontrol()
