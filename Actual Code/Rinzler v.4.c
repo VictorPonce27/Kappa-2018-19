@@ -50,14 +50,14 @@ task autonomous()
 
 	motor[Left]= -127;
 	motor[Right]= 127;
-	wait1Msec(700);
+	wait1Msec(500);
 	motor[Left]= 0;
 	motor[Right]= 0;
 // The robot turns around
 
 	motor[Left]= -127;
 	motor[Right]= -127;
-	wait1Msec(10000);
+	wait1Msec(7000);
 	motor[Left]= 0;
 	motor[Right]= 0;
 // The robot goes backward to go up the ramp
