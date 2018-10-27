@@ -41,30 +41,26 @@ void pre_auton()
 
 task autonomous()
 {
-	motor[Left]= 127;
+	motor[Left]=  127;
 	motor[Right]= 127;
 	motor[LiftR]= 127;
 	motor[LiftL]= 127;
 	motor[ChainB] = -127;
 	wait (2);
-	motor[ChainB] = 0;
+	motor[ChainB] = 15;
 	motor [LiftR] = 0;
 	motor [LiftL] = 0;
 	wait(1);
 	motor[Left]= 0;
 	motor[Right]= 0;
 // The robot goes backward to the ramp
-
 	motor[Left] = 0;
-	motor[Right]=0;
-	wait(5);
-	motor[Left]= 0;
 	motor[Right]= 0;
+	wait(5);
 // The robot turns around
-
-	motor[Left]= -127;
+	motor[Left]=  -127;
 	motor[Right]= -127;
-	wait1Msec(7000);
+	wait(2);
 	motor[Left]= 0;
 	motor[Right]= 0;
 // The robot goes backward to go up the ramp
@@ -82,7 +78,7 @@ task usercontrol()
  			int IntakeBackward	 = vexRT(Btn7D);
  			int leftstickX;
  			int leftstickY;
- 			int deadzone 				 = 5;
+ 			int deadzone 				 = 10;
 
  //////////////////Arcade Drive/////////////////
 	if (abs(vexRT[Ch3]) > deadzone)
@@ -132,7 +128,7 @@ task usercontrol()
 		}
 	else
 		{
-			motor[ChainB] = 10;
+			motor[ChainB] = 15;
 		}
 /////////////////Second Lift//////////////////////////
 
