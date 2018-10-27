@@ -132,7 +132,7 @@ task usercontrol()
 		}
 	else
 		{
-			motor[ChainB] = 0;
+			motor[ChainB] = 10;
 		}
 /////////////////Second Lift//////////////////////////
 
