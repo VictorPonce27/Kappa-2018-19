@@ -46,17 +46,23 @@ task autonomous()
 	motor[LiftR]= 127;
 	motor[LiftL]= 127;
 	motor[ChainB] = -127;
-	wait (2);
+	wait (1.25);
 	motor[ChainB] = 15;
 	motor [LiftR] = 0;
 	motor [LiftL] = 0;
 	wait(1);
 	motor[Left]= 0;
 	motor[Right]= 0;
+	wait (2);
+	motor [Right] = -127;
+	motor [Left]  = -127;
 // The robot goes backward to the ramp
 	motor[Left] = 0;
 	motor[Right]= 0;
-	wait(5);
+	wait(2);
+	motor[Left] = 127;
+	motor[Right]= -127;
+	wait(1.5);
 // The robot turns around
 	motor[Left]=  -127;
 	motor[Right]= -127;

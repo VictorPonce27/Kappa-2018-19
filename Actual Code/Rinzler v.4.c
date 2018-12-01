@@ -39,10 +39,12 @@ void pre_auton()
 {
 }
 
+
 task autonomous()
 {
-	motor[Left]= -127;
-	motor[Right]= -127;
+	motor[Left]=  127;
+	motor[Right]= 127;
+
 	wait1Msec(950);
 	motor[Left]= 0;
 	motor[Right]= 0;
