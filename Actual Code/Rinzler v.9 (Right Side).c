@@ -41,32 +41,38 @@ void pre_auton()
 
 task autonomous()
 {
-	motor[Left]=  127;
+	motor[Left]= 127;
 	motor[Right]= 127;
 	motor[LiftR]= 127;
 	motor[LiftL]= 127;
-	motor[ChainB] = -127;
-	wait1Msec (1250);
-	motor[ChainB] = 15;
-	motor [LiftR] = 0;
-	motor [LiftL] = 0;
+	motor[ChainB]= -127;
+	wait1Msec(2000);
+// The robot, lift, and chain go forward for 2 seconds
+
+	motor[ChainB]= 15;
+	motor[LiftR]= 0;
+	motor[LiftL]= 0;
+	motor[Left]= 0;
+	motor[Right]= 0;
+//Then the robot stops and chain slows down
+
+	motor[Right]= -127;
+	motor[Left]= -127;
 	wait1Msec(1000);
 	motor[Left]= 0;
 	motor[Right]= 0;
-	wait1Msec (2000);
-	motor [Right] = -127;
-	motor [Left]  = -127;
-// The robot goes backward to the ramp
-	motor[Left] = 0;
+// The robot goes backward to the ramp for a second
+
+	motor[Left]= -127;
+	motor[Right]= 127;
+	wait1Msec(1750);
+	motor[Left]= 0;
 	motor[Right]= 0;
-	wait1Msec(2000);
-	motor[Left] = 127;
+// The robot turns around for 1.75 seconds
+
+	motor[Left]= -127;
 	motor[Right]= -127;
-	wait1Msec(1500);
-// The robot turns around
-	motor[Left]=  -127;
-	motor[Right]= -127;
-	wait1Msec(2000);
+	wait1Msec(2500);
 	motor[Left]= 0;
 	motor[Right]= 0;
 // The robot goes backward to go up the ramp
