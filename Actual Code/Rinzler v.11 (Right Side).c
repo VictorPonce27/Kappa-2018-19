@@ -46,8 +46,8 @@ task autonomous()
 	motor[LiftR]= 127;
 	motor[LiftL]= 127;
 	motor[ChainB]= -127;
-	wait1Msec(2500);
-// The robot, lift, and chain go forward for 2.5 seconds
+	wait1Msec(2300);
+// The robot, lift, and chain go forward for 2.3 seconds
 
 	motor[ChainB]= 15;
 	motor[LiftR]= 0;
@@ -58,17 +58,29 @@ task autonomous()
 
 	motor[Right]= -127;
 	motor[Left]= -127;
-	wait1Msec(500);
+	wait1Msec(250);
 	motor[Left]= 0;
 	motor[Right]= 0;
-// The robot goes backward to the ramp for half a second
+// The robot goes backward to the ramp for 0.25 seconds
+
+	motor[ChainB]= 127;
+	wait1Msec(1000);
+	motor[ChainB]= 0;
+// The chain bar goes up
+
+	motor[Left]= 127;
+	motor[Right]= 127;
+	wait1Msec(150);
+	motor[Left]= 0;
+	motor[Right]= 0;
+// The robot goes forward for 0.15 seconds
 
 	motor[Left]= 127;
 	motor[Right]= -127;
-	wait1Msec(4000);
+	wait1Msec(1700);
 	motor[Left]= 0;
 	motor[Right]= 0;
-// The robot turns around for 4 seconds
+// The robot turns around for 1.7 seconds
 
 	motor[Left]= -127;
 	motor[Right]= -127;
@@ -86,7 +98,7 @@ task autonomous()
 	motor[LiftR] = 0;
 // The lift goes down for 1 second
 
-	wait1Msec(1000);
+	wait1Msec(800);
 	motor[Left]= 0;
 	motor[Right]= 0;
 // The robot waits a second and then stops
