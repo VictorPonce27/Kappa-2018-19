@@ -75,8 +75,8 @@ task autonomous()
 	motor[Right]= 0;
 // The robot goes forward for 0.15 seconds
 
-	motor[Left]= -127;
-	motor[Right]= 127;
+	motor[Left]= 127;
+	motor[Right]= -127;
 	wait1Msec(1800);
 	motor[Left]= 0;
 	motor[Right]= 0;
