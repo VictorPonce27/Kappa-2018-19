@@ -94,10 +94,10 @@ task autonomous()
 	motor[ChainB] = 0;
 // The chainbar goes down for 1 second
 
-	wait1Msec(800);
+	wait1Msec(450);
 	motor[Left]= 0;
 	motor[Right]= 0;
-// The robot waits a second and then stops
+// The robot waits 0.45 seconds and then stops
 }
 
 task usercontrol()
